@@ -11,6 +11,9 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var prevButton: UIButton!
+    @IBOutlet weak var nextButton: UIButton!
+    @IBOutlet weak var slideShowButton: UIButton!
     
     //画像の名前の配列
     let imageNameArray = [
@@ -20,26 +23,19 @@ class ViewController: UIViewController {
         ]
     
     @IBAction func Prev(_ sender: Any) {
-        if timer == nil {
         //表示している番号を1減らす
-        dispImageNo -= 1
+            dispImageNo -= 1
         // 表示している画像の番号を元に画像を表示する
-        displayImage()
-        }
+            displayImage()
     }
     
     @IBAction func Next(_ sender: Any) {
-        
-        if timer == nil {            
             //表示している番号を1増やす
             dispImageNo += 1
             // 表示している画像の番号を元に画像を表示する
             displayImage()
-        }
-        
     }
-    
-    
+
     
     //タイマー用の変数
     var timer:Timer!
@@ -57,7 +53,7 @@ class ViewController: UIViewController {
             dispImageNo = imageNameArray.count - 1
         }
 
-        //範囲より上を指している場合、最後の画像を表示
+        //範囲より上を指している場合、最初の画像を表示
         if dispImageNo > imageNameArray.count - 1{
             dispImageNo = 0
         }
@@ -84,22 +80,31 @@ class ViewController: UIViewController {
         // image Viewに画像を設定
         imageView.image = image
         
+            slideShowButton.setTitle("再生", for: .normal)
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
     @IBAction func slideShow(_ sender: Any) {
         //再生訂正ボタンを押すと、スライドショーの再生・停止
+        
         if timer != nil {
             //タイマーを破棄する
             timer.invalidate()
             timer = nil
+            prevButton.isEnabled = true
+            nextButton.isEnabled = true
+            slideShowButton.setTitle("再生", for: .normal)
+
         }
         else{
             self.timer = Timer.scheduledTimer(timeInterval:1.0, target: self, selector: #selector(updateTimer), userInfo: nil, repeats: true)
+            prevButton.isEnabled = false
+            nextButton.isEnabled = false
+            slideShowButton.setTitle("停止", for: .normal)
         }
     }
     
@@ -121,9 +126,10 @@ class ViewController: UIViewController {
             //タイマーを破棄する
             timer.invalidate()
             timer = nil
+            prevButton.isEnabled = true
+            nextButton.isEnabled = true
+            slideShowButton.setTitle("再生", for: .normal)
         }
-        
-
     }
     
     @IBAction func unwind(_ segue: UIStoryboardSegue) {

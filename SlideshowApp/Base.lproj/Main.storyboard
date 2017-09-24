@@ -29,8 +29,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M48-Ec-bYg">
-                                <rect key="frame" x="205.5" y="253" width="67" height="30"/>
-                                <state key="normal" title="再生/停止"/>
+                                <rect key="frame" x="205.5" y="253" width="30" height="30"/>
                                 <connections>
                                     <action selector="slideShow:" destination="BYZ-38-t0r" eventType="touchUpInside" id="SwO-Rw-lbY"/>
                                 </connections>
@@ -43,7 +42,7 @@
                                 </connections>
                             </button>
                             <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Bz7-zN-nLN">
-                                <rect key="frame" x="40" y="89" width="240" height="130"/>
+                                <rect key="frame" x="39.5" y="89" width="240" height="130"/>
                                 <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="6Ad-Gf-AEv"/>
@@ -71,6 +70,9 @@
                     </view>
                     <connections>
                         <outlet property="imageView" destination="Bz7-zN-nLN" id="Gga-EO-m1P"/>
+                        <outlet property="nextButton" destination="pEe-Uz-8RW" id="X6G-i6-7ec"/>
+                        <outlet property="prevButton" destination="n4D-gl-DMl" id="2Gj-eG-7kF"/>
+                        <outlet property="slideShowButton" destination="M48-Ec-bYg" id="6IB-IP-duI"/>
                         <segue destination="LvH-7Z-L3h" kind="show" identifier="zoom" id="TKu-d0-r7d"/>
                     </connections>
                 </viewController>
@@ -96,7 +98,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Izd-Np-KGO">
-                                <rect key="frame" x="145" y="292" width="31" height="30"/>
+                                <rect key="frame" x="144.5" y="292" width="31" height="30"/>
                                 <state key="normal" title="戻る"/>
                                 <connections>
                                     <segue destination="rVu-JE-lxt" kind="unwind" unwindAction="unwind:" id="jeE-FA-7ee"/>
@@ -104,6 +106,9 @@
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gu0-Hj-zxi">
                                 <rect key="frame" x="0.0" y="28" width="320" height="244"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="244" id="2Nz-td-X5r"/>
+                                </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -113,7 +118,6 @@
                             <constraint firstItem="Izd-Np-KGO" firstAttribute="top" secondItem="gu0-Hj-zxi" secondAttribute="bottom" constant="20" id="Mlh-Ig-cpU"/>
                             <constraint firstAttribute="trailing" secondItem="gu0-Hj-zxi" secondAttribute="trailing" id="Xy7-u8-3eO"/>
                             <constraint firstItem="gu0-Hj-zxi" firstAttribute="leading" secondItem="7Sn-jb-uGD" secondAttribute="leading" id="d8F-Ry-sbX"/>
-                            <constraint firstItem="8Lz-bJ-5sd" firstAttribute="top" secondItem="Izd-Np-KGO" secondAttribute="bottom" constant="158" id="nxl-LT-Ksh"/>
                         </constraints>
                     </view>
                     <connections>

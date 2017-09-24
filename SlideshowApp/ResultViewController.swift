@@ -26,8 +26,6 @@ class ResultViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         //表示している画像の番号を元に画像を表示する
-//不要        func displayImage(){
-            
             // 表示している画像の番号から名前を取り出し
             let name = imageNameArray2[x]
             
@@ -36,10 +34,6 @@ class ResultViewController: UIViewController {
             
             //Image Viewに読み込んだ画像をセット
             imageView2.image = image
-            
-  //不要      }
-
-        
     }
 
     override func didReceiveMemoryWarning() {
